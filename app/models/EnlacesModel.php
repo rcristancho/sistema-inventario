@@ -5,8 +5,9 @@ class Paginas{
   public function enlacesPaginaModel($enlaces){
     if ($enlaces == "ingresar" ||
         $enlaces == "usuarios" ||
-        $enlaces == "editar" ||
-        $enlaces == "salir") {
+        $enlaces == "editar"   ||
+        $enlaces == "salir"    ||
+        $enlaces == "usuarios/create") {
       //Llamamos a los modulos correspondientes a la ruta GET
       $module = "../app/views/modules/".$enlaces.".php";
     }elseif ($enlaces == "index") {

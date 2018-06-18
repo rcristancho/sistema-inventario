@@ -12,7 +12,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="index.php?action=ingresar">ingresar</a></li>
+          <li><a href="index.php?action=usuarios/create">ingresar</a></li>
           <li><a href="index.php?action=usuarios">usuarios</a></li>
           <li><a href="index.php?action=editar">editar</a></li>
           <li><a href="index.php?action=salir">salir</a></li>
