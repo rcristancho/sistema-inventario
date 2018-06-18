@@ -4,17 +4,19 @@ class ConexionModel{
   public function conexion(){
 
     $host     = "localhost";
-    $database = "HCDATABASE02";
-    $user     = "root";
-    $password = "";
+    $database = "inventario_bienes";
+    $user     = "postgres";
+    $password = "postgres";
 
-    $mysqli = mysqli_connect($host, $user, $password, $database);
+    $dbconn = pg_connect("host=$host dbname=$database user=$user password=$password") or die("No se ha podido conectar: ".pg_last_error());
 
-    if (mysqli_connect_errno($mysqli)) {
-      return "Fallo al conectar a MySQL: " . mysqli_connect_error();
-    }else{
-      return $mysqli;
-    }
+    return $dbconn;
   }
 
 }
+
+/*
+//Funcion de prueba para validar la conexion a la base de datos.
+$prueba = new ConexionModel();
+var_dump($prueba->conexion());
+*/
