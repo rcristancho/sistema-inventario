@@ -4,7 +4,7 @@ class ConexionModel{
   public function conexion(){
 
     $host     = "localhost";
-    $database = "inventario_bienes";
+    $database = "Inventariobienes";
     $user     = "postgres";
     $password = "postgres";
 
