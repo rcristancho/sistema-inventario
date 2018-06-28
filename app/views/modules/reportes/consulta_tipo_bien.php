@@ -1,0 +1,1 @@
+<h1>Consulta Tipo Bien</h1>

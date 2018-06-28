@@ -27,6 +27,25 @@ class UsuariosController{
       );
 
       $consulta = UsuariosModel::consultaCedula($datos["cedula"]);
+
+      if (pg_num_rows($consulta) == 0) {
+        echo '<script type="text/javascript">alert("El Usuario no se encuentra registrado!");</script>';
+      }elseif (pg_num_rows(UsuariosModel::usuariosActivos($datos)) == 0) {
+        echo '<script type="text/javascript">alert("El Usuario esta suspendido!");</script>';
+      }elseif (pg_num_rows(UsuariosModel::loginUsuario($datos)) == 0) {
+        echo '<script type="text/javascript">alert("Cedula o Contraseña incorrecto!");</script>';
+      }else{
+        $usuario = pg_fetch_assoc($consulta);    
+        $nombre = $usuario["nombre"]." ".$usuario["apellido"];
+        //var_dump($usuario);
+        $_SESSION["logueado"]    = true;
+        $_SESSION["user_name"]   = ucwords(strtolower($nombre));
+        $_SESSION["user_id"]     = $usuario["cedula"];
+        $_SESSION["user_perfil"] = $usuario["id_perfil"];
+
+        echo '<script type="text/javascript">alert("Bienvenido '.$_SESSION["user_name"].'!");window.location.href="index.php";</script>';
+      }
+      /*
       //echo pg_num_rows(UsuariosModel::consultaCedula($datos["cedula"]));
       if (pg_num_rows($consulta) > 0) {
         if (pg_num_rows(UsuariosModel::usuariosActivos($datos)) > 0) {
@@ -51,6 +70,7 @@ class UsuariosController{
       }else{
         echo '<script type="text/javascript">alert("El Usuario no se encuentra registrado!");</script>';
       }
+      */
 
     }
   }

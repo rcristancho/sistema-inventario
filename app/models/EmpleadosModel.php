@@ -15,9 +15,6 @@ class EmpleadosModel{
 	    		  INNER JOIN institucion d ON d.id_institucion = a.id_institucion 
 	    		  WHERE cedula = $cedula";
 
-
-
-
 	    $resultado = pg_query($conexion, $query);
 
 	    return $resultado;
