@@ -23,8 +23,6 @@
             <ul class="dropdown-menu">
               <li class="dropdown-header">Administración Usuarios</li>
               <li><a href="index.php?action=admin/usuarios_create">Creación Usuarios</a></li>
-              <li><a href="index.php?action=admin/usuarios_edit">Editar Usuarios</a></li>
-              <li><a href="index.php?action=admin/usuarios_consult">Consultar Usuarios</a></li>
             </ul>
           </li>
           <?php    
