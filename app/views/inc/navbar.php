@@ -36,11 +36,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="index.php?action=reportes/consulta_cedula">Consulta Cédula</a></li>
-              <li><a href="index.php?action=reportes/consulta_num_bien">Consulta Num. Bien</a></li>
+              <li><a href="index.php?action=reportes/consulta_bien">Consulta Bien</a></li>
+              <li><a href="index.php?action=reportes/consulta_historico_bien">Consulta Historico Bien</a></li>
               <li><a href="index.php?action=reportes/consulta_tipo_bien">Consulta Tipo Bien</a></li>
               <li><a href="index.php?action=reportes/consulta_inventario">Consulta Inventario</a></li>
             </ul>
-          </li>
+          </li>      
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["user_name"] ?> <span class="caret"></span></a>
             <ul class="dropdown-menu">

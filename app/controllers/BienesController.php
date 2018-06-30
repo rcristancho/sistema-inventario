@@ -55,7 +55,7 @@ class BienesController
                 'observacion' => $_POST['observacion'],
                 'date' => $date,
                 'estatus' => 1,
-                'gerencia_responsable' =>5,                             
+                'gerencia_responsable' => 5,                             
             );
 
             $incorporacion = InventarioModel::insertarBien($datosBien);

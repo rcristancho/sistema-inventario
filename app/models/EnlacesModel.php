@@ -16,7 +16,8 @@ class Paginas{
              $enlaces == "bienes/incorporacion" ||
              $enlaces == "bienes/asignacion" ||
              $enlaces == "reportes/consulta_cedula" ||
-             $enlaces == "reportes/consulta_num_bien" ||
+             $enlaces == "reportes/consulta_bien" ||
+             $enlaces == "reportes/consulta_historico_bien" ||
              $enlaces == "reportes/consulta_tipo_bien" ||
              $enlaces == "reportes/consulta_inventario") {
       //Llamamos a los modulos correspondientes a la ruta GET

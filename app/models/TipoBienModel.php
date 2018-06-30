@@ -2,9 +2,11 @@
 
 require_once "ConexionModel.php";
 
-class TipoBienModel{
+class TipoBienModel
+{
 
-	public function select (){
+	public function select ()
+	{
 
 	$conexion = ConexionModel::conexion();
 
@@ -14,6 +16,31 @@ class TipoBienModel{
 
 	return $resultado;
 
+	}
+
+	public function consultarTipoBien($datos)
+	{
+		$conexion = ConexionModel::conexion();
+
+		$tipo_bien = pg_escape_string($datos['tipo_bien']);
+
+		$query = "SELECT inventario.numero_bien,
+						bienes.descripcion_bien,
+						inventario.serial_bien,
+						inventario.grupo,
+						inventario.sub_grupo,
+						inventario.seccion,
+						inventario.caracteristicas,
+						estatus.descripcion_estatus
+					FROM inventario
+					JOIN bienes ON bienes.id_bienes = inventario.id_bien
+					JOIN tipo_bien ON tipo_bien.id_tipo_bien = bienes.id_tipo_bien
+					JOIN estatus ON estatus.id_estatus = inventario.id_estatus
+					WHERE bienes.id_tipo_bien = '$tipo_bien';";
+
+			$resultado = pg_query($conexion, $query);
+
+			return $resultado;
 	}
 
 }
