@@ -76,6 +76,12 @@ class BienesController
         }
     }
 
+    public function consultaInventario()
+    {
+        $resultado = InventarioModel::consultaInventario();
+        return $resultado;
+    }
+
 }
 
 

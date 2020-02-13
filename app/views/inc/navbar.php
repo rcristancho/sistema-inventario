@@ -23,13 +23,26 @@
             <ul class="dropdown-menu">
               <li class="dropdown-header">Administración Usuarios</li>
               <li><a href="index.php?action=admin/usuarios_create">Creación Usuarios</a></li>
+              <li><a href="index.php?action=admin/usuarios_consulta">Consulta Usuarios</a></li>
+              <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">Mantenimiento <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.php?action=admin/tipo_bien">Tipo de Bien</a></li>
+                  <li><a href="index.php?action=admin/bien">Bien</a></li>
+                  <li><a href="index.php?action=admin/institucion">Institucion</a></li>
+                  <li><a href="index.php?action=admin/almacen">Almacen</a></li>
+                  <li><a href="index.php?action=admin/tipo_incorporacion">Tipo de Incorporacion</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <?php    
             }
-          ?>
+          ?>         
           <li><a href="index.php?action=bienes/incorporacion">Incorporación de Bienes</a></li>
           <li><a href="index.php?action=bienes/asignacion">Asignar Bienes</a></li>
+          <li><a href="index.php?action=bienes/desvinculacion">Desvincular Bienes</a></li>
+          <li><a href="index.php?action=empleados/empleados">Empleados</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -43,6 +56,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["user_name"] ?> <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="index.php?action=usuarios/perfil">Perfil</a></li>
               <li><a href="index.php?action=logout">Cerrar Sesion</a></li>
             </ul>
           </li>

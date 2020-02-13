@@ -1,6 +1,8 @@
 <?php
 require_once "../../app/models/EmpleadosModel.php";
 require_once "../../app/models/InventarioModel.php";
+require_once "../../app/models/TipoBienModel.php";
+require_once "../../app/models/UsuariosModel.php";
 
 class AjaxController
 {
@@ -22,6 +24,40 @@ class AjaxController
 			$valor = InventarioModel::consultaId($numero_bien);
 			if (pg_num_rows($valor) > 0) {
 				return pg_fetch_assoc($valor);
+			}
+		}
+
+		if (isset($_GET["tipo_bien"])) {
+			$tipo_bien = pg_escape_string($_GET["tipo_bien"]);
+			$valor = TipoBienModel::consultaId($tipo_bien);
+			if (pg_num_rows($valor) > 0) {
+				return pg_fetch_assoc($valor);
+			}
+		}
+
+		if (isset($_GET["suspender"])) {
+
+			$id = pg_escape_string($_GET["suspender"]);
+
+			$resultado = UsuariosModel::suspender($id);
+
+			if (pg_result_status($resultado)) {
+				return "Usuario suspendido Exitosamente";
+			}else{
+				return "Ha ocurrido un error. Comunicarse con el Administrador.";
+			}
+		}
+
+		if (isset($_GET["activar"])) {
+
+			$id = pg_escape_string($_GET["activar"]);
+
+			$resultado = UsuariosModel::activar($id);
+
+			if (pg_result_status($resultado)) {
+				return "Usuario activado Exitosamente";
+			}else{
+				return "Ha ocurrido un error. Comunicarse con el Administrador.";
 			}
 		}
 	}

@@ -43,4 +43,40 @@ class TipoBienModel
 			return $resultado;
 	}
 
+	public function consulta()
+	{
+		$conexion = ConexionModel::conexion();
+
+		$query = "SELECT * FROM tipo_bien";
+
+		$resultado = pg_query($conexion, $query);
+
+		return $resultado;
+	}
+
+	public function consultaId($id)
+	{
+		$conexion = ConexionModel::conexion();
+
+		$query = "SELECT * FROM tipo_bien WHERE id_tipo_bien = $id";
+
+		$resultado = pg_query($conexion, $query);
+
+		return $resultado;
+	}
+
+	public function actualizacion($datos)
+	{
+		$conexion = ConexionModel::conexion();
+
+		$query = sprintf("UPDATE public.tipo_bien
+						  SET descripcion_tipobien = '%s'
+						  WHERE id_tipo_bien= '%s'",
+						  $datos["descripcion"],
+						  $datos["id"]);
+
+		$resultado = pg_query($conexion, $query);
+
+		return $resultado;
+	}
 }

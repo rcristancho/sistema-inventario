@@ -69,3 +69,4 @@ $(document).ready(function(){
     $("#bienes_consulta").find("tbody tr:last").remove();
   });
 });
+

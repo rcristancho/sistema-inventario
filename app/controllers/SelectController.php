@@ -6,6 +6,8 @@ require_once "../app/models/InstitucionModel.php";
 require_once "../app/models/TipoIncorporacionModel.php";
 require_once "../app/models/UbicacionAlmacenModel.php";
 require_once "../app/models/PerfilesModel.php";
+require_once "../app/models/CargoModel.php";
+require_once "../app/models/GerenciaModel.php";
 
 class SelectController {
 
@@ -53,5 +55,17 @@ class SelectController {
 
 	}
 
+	public function selectCargos()
+	{
+		$respuesta = CargoModel::select();
 
+		return $respuesta;
+	}
+
+	public function selectGerencia()
+	{
+		$respuesta = GerenciaModel::select();
+
+		return $respuesta;
+	}
 }

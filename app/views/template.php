@@ -19,6 +19,17 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+  .dropdown-submenu {
+      position: relative;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -1px;
+  }
+  </style>
 </head>
 <body>
   <?php
@@ -69,5 +80,77 @@
           ]
       } );
     } );
+  $(document).ready(function(){
+    $('.dropdown-submenu a.test').on("click", function(e){
+      $(this).next('ul').toggle();
+      e.stopPropagation();
+      e.preventDefault();
+    });
+  });
+
+  $(document).ready(function(){
+    $("#checkbox").click(function(){
+      if ($(this).is(':checked')) {
+        $("input[type=checkbox]").prop('checked', true);
+      }else{
+        $("input[type=checkbox]").prop('checked', false);
+      };
+    });
+  });
+
+
+  $(document).ready(function(){
+    $(".editTipoBien").click(function(){
+      var id = $(this).attr('id');
+      $.get('/sib/app/controllers/AjaxController.php?tipo_bien='+id, function(data){
+          $("#id").val(data.id_tipo_bien);
+          $("#descripcion").val(data.descripcion_tipobien);
+          $("#edit_modal").modal('show');
+      });
+    });
+  });
+
+  $(document).ready(function(){
+    $(".create-empleado").click(function(){
+      $("#create-empleado").modal("show");
+    });
+  });
+  
+  $(document).ready(function(){
+    $(".edit-empleado").click(function(){
+      var id = $(this).attr('id');
+      $.get('/sib/app/controllers/AjaxController.php?cedula='+id, function(data){
+          $("#cedula").val(data.cedula).prop('readonly', true);
+          $("#nombre").val(data.nombre_empleado);
+          $("#apellido").val(data.apellido_empleado);
+          $("#email").val(data.correo_empleado);
+          $("#cargo").val(data.id_cargo);
+          $("#gerencia").val(data.id_gerencia);
+          $("#institucion").val(data.id_institucion);
+          $("#submit").val("edit");
+          $("#create-empleado").modal('show');
+      });
+    });
+  });
+
+  $(document).ready(function(){
+    $(".suspender-usuario").click(function(){
+      var id = $(this).attr('id');
+      $.get('/sib/app/controllers/AjaxController.php?suspender='+id, function(data){
+        alert(data);
+        window.location.reload(true);
+      });
+    });
+  });
+
+  $(document).ready(function(){
+    $(".activar-usuario").click(function(){
+      var id = $(this).attr('id');
+      $.get('/sib/app/controllers/AjaxController.php?activar='+id, function(data){
+        alert(data);
+        window.location.reload(true);
+      });
+    });
+  });
   </script>
 </html>

@@ -3,7 +3,7 @@
 ?>
 <div class="container">
 	<div class="row">
-		<h2 class="text-center">Asignacion Bienes</h2>
+		<h2 class="text-center">Consulta Bienes</h2>
 	</div>
 	<hr>
 	<form method="post">
@@ -17,6 +17,7 @@
 			<input name="submit_consulta_bien" type="submit" value="Buscar" class="btn btn-primary">
 		</div>
 	</div>
+	</form>
 	<?php
 		$num_bien = MovimientosController::consultaBien();
 	?>

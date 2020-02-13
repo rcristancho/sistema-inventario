@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="boxs">
 				<div class="col-md-4">
-					<a href="">
+					<a href="index.php?action=bienes/incorporacion">
 						<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
 							<div class="align-center">
 								 <h4>Incorporación de Bienes</h4>					
@@ -20,7 +20,7 @@
 					</a>
 				</div>
 				<div class="col-md-4">
-					<a href="">
+					<a href="index.php?action=bienes/asignacion">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.3s">
 						<div class="align-center">
 							<h4>Asignación de Bienes</h4>				

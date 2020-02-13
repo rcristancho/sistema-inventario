@@ -1,5 +1,4 @@
 <?php
-
 require_once "ConexionModel.php";
 
 class UsuariosModel{
@@ -7,13 +6,14 @@ class UsuariosModel{
   /*
    *
    */
-  public function select()
+  public function consultaGeneral()
   {
     $conexion = ConexionModel::conexion();
 
-    $query = "SELECT * FROM usuarios";
+    $query = "SELECT a.*,b.* FROM usuarios a 
+              INNER JOIN perfiles b ON a.id_perfil = b.id_perfil";
 
-    $resultado = mysqli_query($conexion, $query);
+    $resultado = pg_query($conexion, $query);
 
     return $resultado;
   }
@@ -80,6 +80,56 @@ class UsuariosModel{
     $query = sprintf("SELECT * FROM usuarios WHERE cedula = '%s' AND estatus_usuario = '%s'",
                      $datos["cedula"],
                      true);
+
+    $resultado = pg_query($conexion, $query);
+
+    return $resultado;
+  }
+
+  /*
+   *
+   */
+  public function actualizarUsuario ($datos) 
+  {
+    $conexion = ConexionModel::conexion();
+
+    $query = sprintf("UPDATE public.usuarios SET nombre='%s', apellido='%s', correo='%s', password='%s', id_perfil='%s' WHERE cedula = '%s'", 
+          $datos["nombre"], 
+          $datos["apellido"], 
+          $datos["email"], 
+          $datos["password"], 
+          $datos["perfil"], 
+          $datos["cedula"]);
+
+    $resultado = pg_query($conexion, $query);
+
+    return $resultado;
+  }
+
+  /*
+   *
+   */
+  public function suspender ($id) 
+  {
+    $conexion = ConexionModel::conexion();
+
+    $query = sprintf("UPDATE public.usuarios SET estatus_usuario = false WHERE cedula = '%s'", 
+                      $id);
+
+    $resultado = pg_query($conexion, $query);
+
+    return $resultado;
+  }
+
+  /*
+   *
+   */
+  public function activar ($id) 
+  {
+    $conexion = ConexionModel::conexion();
+
+    $query = sprintf("UPDATE public.usuarios SET estatus_usuario = true WHERE cedula = '%s'", 
+                      $id);
 
     $resultado = pg_query($conexion, $query);
 

@@ -79,4 +79,21 @@ class MovimientoBienModel
 	    return $resultado;
 	}
 
+	public function actualizacionEstatusUso($bien, $cedula)
+	{
+		$conexion = ConexionModel::conexion();
+
+		$query = sprintf("UPDATE movimiento_bienes a
+						  SET estatus_uso = false
+						  FROM movimientos_detalle b
+						  WHERE b.id_cedula_empleado = '%s'
+						  AND a.id_movimiento = b.id_movimiento
+						  AND a.numero_bien = '%s'",
+						  $cedula,
+						  $bien);
+
+		$resultado = pg_query($conexion, $query);
+
+	    return $resultado;
+	}
 }

@@ -13,13 +13,20 @@ class Paginas{
       $module = "../app/views/modules/login.php";
 
     }elseif ($enlaces == "admin/usuarios_create" ||
+             $enlaces == "admin/usuarios_consulta" ||
+             $enlaces == "admin/tipo_bien" ||
+             $enlaces == "admin/crear_tipobien" ||
              $enlaces == "bienes/incorporacion" ||
              $enlaces == "bienes/asignacion" ||
+             $enlaces == "bienes/desvinculacion" ||
              $enlaces == "reportes/consulta_cedula" ||
              $enlaces == "reportes/consulta_bien" ||
              $enlaces == "reportes/consulta_historico_bien" ||
              $enlaces == "reportes/consulta_tipo_bien" ||
-             $enlaces == "reportes/consulta_inventario") {
+             $enlaces == "reportes/consulta_inventario" || 
+             $enlaces == "usuarios/perfil" ||
+             $enlaces == "empleados/empleados" ||
+             $enlaces == "prueba") {
       //Llamamos a los modulos correspondientes a la ruta GET
       $module = "../app/views/modules/".$enlaces.".php";
 

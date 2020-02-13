@@ -53,15 +53,15 @@
     <div class="row form-group">
       <div class="col-sm-4">
         <label for="grupo">Grupo:</label>
-        <input class="form-control" type="text" name="grupo" value="" maxlength="3" pattern="[0-9]{2}" maxlength="2" placeholder="Grupo" required>
+        <input class="form-control" type="text" name="grupo" value="" pattern="[0-9]{1,3}" maxlength="2" placeholder="Grupo" required>
       </div>
       <div class="col-sm-4">
         <label for="sub_grupo">Sub-Grupo:</label>
-        <input class="form-control" type="text" name="sub_grupo" value="" maxlength="3" pattern="[0-9]{2}" maxlength="2" placeholder="Sub-Grupo" required>
+        <input class="form-control" type="text" name="sub_grupo" value="" pattern="[0-9]{1-3}" maxlength="2" placeholder="Sub-Grupo" required>
       </div>
       <div class="col-sm-4">
         <label for="seccion">Sección:</label>
-        <input class="form-control" type="text" name="seccion" value="" maxlength="3" pattern="[0-9]{2}" maxlength="2" placeholder="Sección" required>
+        <input class="form-control" type="text" name="seccion" value="" pattern="[0-9]{1-3}" maxlength="2" placeholder="Sección" required>
       </div>
     </div>
     <div class="row form-group">
@@ -77,7 +77,7 @@
     <div class="row form-group">     
       <div class="col-sm-4">
         <label for="serial_bien">Serial del Bien:</label>
-        <input class="form-control" type="text" name="serial_bien" value="" required pattern="[0-9]{10}" maxlength="10" placeholder="Serial del Bien" title="Solo Números Permitidos. Cantidad Caracteres 10.">
+        <input class="form-control" type="text" name="serial_bien" value="" required pattern="[0-9]{5}" maxlength="5" placeholder="Serial del Bien" title="Solo Números Permitidos. Cantidad Caracteres 10.">
       </div>
       <div class="col-sm-4">
         <label for="fecha_adquisicion">Fecha de Adquisición:</label>

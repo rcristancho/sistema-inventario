@@ -15,7 +15,8 @@ class EnlacesController{
       $enlaces = $_GET["action"];
     }
 
-    $respuesta = Paginas::enlacesPaginaModel($enlaces);
+    $paginas = new Paginas();
+    $respuesta = $paginas->enlacesPaginaModel($enlaces);
     include $respuesta;
   }
 

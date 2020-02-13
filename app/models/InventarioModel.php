@@ -78,4 +78,35 @@ class InventarioModel{
 
 	    return $resultado;
 	}
+
+	public function consultaInventario()
+	{
+	    $conexion = ConexionModel::conexion();    				
+		
+		$query = "SELECT inventario.numero_bien,inventario.id_estatus,tipo_bien.descripcion_tipobien,bienes.descripcion_bien,
+				  inventario.grupo,inventario.sub_grupo,inventario.seccion,institucion.nombre_institucion,
+				  inventario.caracteristicas,inventario.serial_bien,inventario.valor,ubicacion_almacen.nombre_almacen
+				  FROM inventario
+				  INNER JOIN bienes ON bienes.id_bienes = inventario.id_bien
+				  INNER JOIN tipo_bien ON tipo_bien.id_tipo_bien = bienes.id_tipo_bien
+				  INNER JOIN institucion ON institucion.id_institucion = inventario.id_institucion
+				  INNER JOIN ubicacion_almacen ON ubicacion_almacen.id_ubicacion_almacen = inventario.id_ubicacion_almacen";
+
+	    $resultado = pg_query($conexion, $query);
+
+	    return $resultado;
+	}
+
+	public function actualizarEstatusDesvinculacion($bien)
+	{
+		$conexion = ConexionModel::conexion();
+
+		$query = "UPDATE public.inventario
+				  SET id_estatus = 1
+				  WHERE numero_bien = $bien";
+
+	    $resultado = pg_query($conexion, $query);
+
+	    return $resultado;
+	}
 }
